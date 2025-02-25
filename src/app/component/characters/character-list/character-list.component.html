@@ -1,23 +1,25 @@
 <div class="container">
-    <h1>Lista de Personajes</h1>
-    
+    <h1>Lista de Personajes de Disney</h1>
+  
+    <!-- Barra de búsqueda -->
     <div class="search-container">
-      <input [(ngModel)]="searchName" placeholder="Buscar personaje..." />
-      <button (click)="search()">Buscar</button>
+      <input [(ngModel)]="searchName" placeholder="Buscar personaje..." class="search-input" />
+      <button (click)="search()" class="search-button">Buscar</button>
     </div>
   
+    <!-- Lista de personajes -->
     <div class="characters-grid">
       <div *ngFor="let character of characters" class="character-card">
-        <img [src]="character.imageUrl" [alt]="character.name" />
-        <h3>{{ character.name }}</h3>
-        <a [routerLink]="['/character', character._id]">Ver Detalles</a>
+        <img [src]="character.imageUrl" [alt]="character.name" class="character-image" />
+        <h3 class="character-name">{{ character.name }}</h3>
+        <a [routerLink]="['/character', character._id]" class="details-link">Ver Detalles</a>
       </div>
     </div>
   
+    <!-- Paginación -->
     <div class="pagination">
-      <button (click)="page > 1 && (page = page - 1); fetchCharacters()">Anterior</button>
-      <span>Página {{ page }}</span>
-      <button (click)="page = page + 1; fetchCharacters()">Siguiente</button>
+      <button (click)="page > 1 && (page = page - 1); fetchCharacters()" class="pagination-button">Anterior</button>
+      <span class="pagination-text">Página {{ page }}</span>
+      <button (click)="page = page + 1; fetchCharacters()" class="pagination-button">Siguiente</button>
     </div>
   </div>
-  

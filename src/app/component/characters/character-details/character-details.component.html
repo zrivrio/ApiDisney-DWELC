@@ -1,7 +1,7 @@
 <div class="container" *ngIf="character">
     <h1>{{ character.name }}</h1>
-    <img [src]="character.imageUrl" [alt]="character.name" />
-    
+    <img [src]="character.imageUrl" [alt]="character.name" class="character-image" />
+  
     <div class="info">
       <h3>Películas:</h3>
       <ul>
@@ -14,6 +14,5 @@
       </ul>
     </div>
   
-    <a routerLink="/">Volver a la lista</a>
+    <a routerLink="/" class="back-link">Volver a la lista</a>
   </div>
-  
