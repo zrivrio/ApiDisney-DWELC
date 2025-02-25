@@ -1,27 +1,32 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { map } from 'rxjs';
+import { CharacterModel } from '../models/character.model'; 
 
 @Injectable({
   providedIn: 'root'
 })
 export class DisneyService {
-  private apiUrl = 'https://api.disneyapi.dev';
+  private apiUrl = 'https://api.disneyapi.dev/character';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  getCharacters() {
-    return this.http.get(`${this.apiUrl}/characters`);
+  getAllCharacters(page: number = 1) {
+    return this.http.get<{ data: CharacterModel[] }>(`${this.apiUrl}?page=${page}`).pipe(
+      map(response => response.data || [])
+    );
   }
 
-  getCharacterById(id: string){
-    return this.http.get(`${this.apiUrl}/characters/${id}`);
+  getCharacterById(id: number) {
+    return this.http.get<{ data: CharacterModel }>(`${this.apiUrl}/${id}`).pipe(
+      map(response => response.data)
+    );
   }
 
-  getMovies() {
-    return this.http.get(`${this.apiUrl}/movies`);
+  searchCharacter(name: string) {
+    return this.http.get<{ data: CharacterModel[] }>(`${this.apiUrl}?name=${name}`).pipe(
+      map(response => response.data || [])
+    );
   }
 
-  getMovieById(id: string){
-    return this.http.get(`${this.apiUrl}/movies/${id}`);
-  }
 }

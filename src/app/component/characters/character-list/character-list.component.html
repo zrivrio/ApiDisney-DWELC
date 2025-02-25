@@ -1,1 +1,23 @@
-<p>character-list works!</p>
+<div class="container">
+    <h1>Lista de Personajes</h1>
+    
+    <div class="search-container">
+      <input [(ngModel)]="searchName" placeholder="Buscar personaje..." />
+      <button (click)="search()">Buscar</button>
+    </div>
+  
+    <div class="characters-grid">
+      <div *ngFor="let character of characters" class="character-card">
+        <img [src]="character.imageUrl" [alt]="character.name" />
+        <h3>{{ character.name }}</h3>
+        <a [routerLink]="['/character', character._id]">Ver Detalles</a>
+      </div>
+    </div>
+  
+    <div class="pagination">
+      <button (click)="page > 1 && (page = page - 1); fetchCharacters()">Anterior</button>
+      <span>Página {{ page }}</span>
+      <button (click)="page = page + 1; fetchCharacters()">Siguiente</button>
+    </div>
+  </div>
+  

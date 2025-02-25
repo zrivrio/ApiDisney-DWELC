@@ -1,0 +1,43 @@
+.container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .search-container {
+    margin-bottom: 20px;
+  }
+  
+  .search-container input {
+    padding: 8px;
+    margin-right: 10px;
+  }
+  
+  .characters-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+  }
+  
+  .character-card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    text-align: center;
+    width: 200px;
+  }
+  
+  .character-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .pagination {
+    margin-top: 20px;
+  }
+  
+  .info ul {
+    list-style: none;
+    padding: 0;
+  }
+  

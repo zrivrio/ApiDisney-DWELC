@@ -1,1 +1,19 @@
-<p>character-details works!</p>
+<div class="container" *ngIf="character">
+    <h1>{{ character.name }}</h1>
+    <img [src]="character.imageUrl" [alt]="character.name" />
+    
+    <div class="info">
+      <h3>Películas:</h3>
+      <ul>
+        <li *ngFor="let film of character.films">{{ film }}</li>
+      </ul>
+  
+      <h3>Series:</h3>
+      <ul>
+        <li *ngFor="let show of character.tvShows">{{ show }}</li>
+      </ul>
+    </div>
+  
+    <a routerLink="/">Volver a la lista</a>
+  </div>
+  
